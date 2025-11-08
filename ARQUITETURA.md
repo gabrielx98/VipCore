@@ -147,7 +147,7 @@ A escolha do MongoDB como banco de dados deu se devido a alta compatibilidade co
 | `createdBy` | ObjectId | ID do usuário que criou o aviso                      | `"675a888b1234567890"`            |
 | `updatedBy` | ObjectId | ID do usuário que alterou o aviso                    | `"675a888b1234567890"`            |
 | `createdAt` | Date     | Data de publicação                                   | `"2025-11-01T10:00:00Z"`          |
-| `updateAt`  | Date     | Data de alteração                                    | `"2025-01-15T12:00:00Z"`          |
+| `updateDAt`  | Date     | Data de alteração                                    | `"2025-01-15T12:00:00Z"`          |
 
 ### 📅 `meetings` — Reuniões
 
@@ -166,29 +166,29 @@ A escolha do MongoDB como banco de dados deu se devido a alta compatibilidade co
 
 ### ✅ `attendances` — Registros de Presença / Check-ins
 
-| Campo         | Tipo     | Descrição                 | Exemplo                  |
-|---------------|----------|---------------------------|--------------------------|
-| `_id`         | ObjectId | Identificador do check-in | `"675a111b1234567890"`   |
-| `meetingId`   | ObjectId | ID da reunião             | `"675a777b1234567890"`   |
-| `userId`      | ObjectId | ID do membro presente     | `"675a888b1234567890"`   |
-| `checkInTime` | Date     | Horário de registro       | `"2025-11-10T09:05:00Z"` |
-| `status`      | String   | `PRESENTE`, `ATRASADO`    | `"PRESENTE"`             |
+| Campo         | Tipo     | Descrição                         | Exemplo                  |
+|---------------|----------|-----------------------------------|--------------------------|
+| `_id`         | ObjectId | Identificador do check-in         | `"675a111b1234567890"`   |
+| `meetingId`   | ObjectId | ID da reunião                     | `"675a777b1234567890"`   |
+| `userId`      | ObjectId | ID do membro presente             | `"675a888b1234567890"`   |
+| `checkInTime` | Date     | Horário de registro               | `"2025-11-10T09:05:00Z"` |
+| `status`      | String   | `PRESENTE`, `ATRASADO`, `AUSENTE` | `"PRESENTE"`             |
 
 ---
 
 ### 💼 `opportunities` — Indicações de Negócios
 
-| Campo         | Tipo     | Descrição                            | Exemplo                                   |
-|---------------|----------|--------------------------------------|-------------------------------------------|
-| `_id`         | ObjectId | Identificador da indicação           | `"675a222b1234567890"`                    |
-| `fromUser`    | ObjectId | Membro que gerou a indicação         | `"675a888b1234567890"`                    |
-| `toUser`      | ObjectId | Membro indicado                      | `"675a555b1234567890"`                    |
-| `description` | String   | Descrição da oportunidade            | `"Contato com empresa ABC para proposta"` |
-| `status`      | String   | `ENVIADA`, `EM ANDAMENTO`, `FECHADA` | `"ENVIADA"`                               |
-| `createdBy`   | ObjectId | Usuário criador                      | `"675a888b1234567890"`                    |
-| `updatedBy`   | ObjectId | Usuário alterador                    | `"675a888b1234567890"`                    |
-| `createdAt`   | Date     | Data de publicação                   | `"2025-11-01T10:00:00Z"`                  |
-| `updateAt`    | Date     | Data de alteração                    | `"2025-01-15T12:00:00Z"`                  |
+| Campo         | Tipo     | Descrição                                          | Exemplo                                   |
+|---------------|----------|----------------------------------------------------|-------------------------------------------|
+| `_id`         | ObjectId | Identificador da indicação                         | `"675a222b1234567890"`                    |
+| `fromUser`    | ObjectId | Membro que gerou a indicação                       | `"675a888b1234567890"`                    |
+| `toUser`      | ObjectId | Membro indicado                                    | `"675a555b1234567890"`                    |
+| `description` | String   | Descrição da oportunidade                          | `"Contato com empresa ABC para proposta"` |
+| `status`      | String   | `ENVIADA`, `EM ANDAMENTO`, `RECUSADA`, `CONCLUÍDA` | `"ENVIADA"`                               |
+| `createdBy`   | ObjectId | Usuário criador                                    | `"675a888b1234567890"`                    |
+| `updatedBy`   | ObjectId | Usuário alterador                                  | `"675a888b1234567890"`                    |
+| `createdAt`   | Date     | Data de publicação                                 | `"2025-11-01T10:00:00Z"`                  |
+| `updateAt`    | Date     | Data de alteração                                  | `"2025-01-15T12:00:00Z"`                  |
 
 ---
 
@@ -198,7 +198,7 @@ A escolha do MongoDB como banco de dados deu se devido a alta compatibilidade co
 |---------------|----------|----------------------------------------------------|------------------------------------------------|
 | `_id`         | ObjectId | Identificador da notificação                       | `"675a444b1234567890"`                         |
 | `userId`      | ObjectId | Usuário destinatário                               | `"675a888b1234567890"`                         |
-| `type`        | String   | Tipo (`MENSALIDADE`, `REUNIÃO`, `AVISO`)           | `"MENSALIDADE"`                                |
+| `type`        | String   | Tipo (`ALERTA`, `AVISO`, `INFO`)                   | `"AVISO"`                                      |
 | `title`       | String   | Título curto                                       | `"Pagamento Pendente"`                         |
 | `message`     | String   | Detalhe da notificação                             | `"Sua mensalidade de novembro está pendente."` |
 | `createdAt`   | Date     | Data de publicação                                 | `"2025-11-01T10:00:00Z"`                       |
