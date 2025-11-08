@@ -1,0 +1,17 @@
+{
+  "name": "vipcore",
+  "version": "1.0.0",
+  "description": "Plataforma de Gestão para grupo de Networking",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "shared"
+  ]
+}
