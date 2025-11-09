@@ -1,4 +1,4 @@
-import { IsDate, IsEmail, IsString, IsEnum, IsBoolean, IsMongoId, IsHash, IsOptional } from 'class-validator';
+import { IsDate, IsEmail, IsString, IsEnum, IsBoolean, IsMongoId, IsOptional } from 'class-validator';
 
 export enum UserRole {
     ADMIN = 'ADMINISTRADOR',
@@ -23,8 +23,8 @@ export class UserDto {
     @IsEmail()
     email: string;
 
-    @IsHash('sha256')
-    passwordHash: string;
+    @IsString()
+    password: string;
 
     @IsEnum(UserRole)
     role: UserRole;
