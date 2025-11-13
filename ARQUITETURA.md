@@ -307,12 +307,24 @@ Gerencia as reuniões e permite registrar presenças (check-ins).
 | `PATCH`  | `/:id` | Atualiza dados da reunião      | `{ "title": "", "description": "", "date": "", "location": "" }`| `"message": "Reunião atualizada"`                                                             |
 | `DELETE` | `/:id` | Remove reunião (soft delete)   | —                                                               | `"message": "Reunião cancelada"`                                                              |
 
+### 📅 Reuniões (`/api/v1/messages`)
+
+Gerencia as mensagem e notificações.
+
+| Método   | Rota   | Descrição                      | Request                                                         | Response                                                                                      |
+|----------|--------|--------------------------------|-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| `GET`    | `/`    | Lista todas as mensagens       | —                                                               | `"data": [ {"_id": "","title": "","content": "","target": ""}]`                               |
+| `GET`    | `/:id` | Detalha uma mensagem           | —                                                               | `"data":   {"_id": "","title": "","content": "","target": ""}`                                |
+| `POST`   | `/`    | Cria uma nova mensagem         | `{ "title": "", "content": "", "target": "", "location": "" }`  | `"message": "Reunião criada"`                                                                 |
+| `PATCH`  | `/:id` | Atualiza uma mensagem          | `{ "title": "", "content": "", "target": "", "location": "" }`  | `"message": "Reunião atualizada"`                                                             |
+| `DELETE` | `/:id` | Remove reunião (soft delete)   | —                                                               | `"message": "Reunião cancelada"`                                                              |
+
 #### ✅ Check-ins de Presença (`/api/v1/attendances`)
 
-| Método  | Rota          | Descrição                                      | Request                                   | Response                                  |
-|---------|---------------|------------------------------------------------|-------------------------------------------|-------------------------------------------|
-| `POST`  | `/`           | Registra presença de um usuário em uma reunião | `{ "meetingId": "...", "userId": "..." }` | `"message": "Check-in realizado"`         |
-| `GET`   | `/:meetingId` | Lista presenças de uma reunião                 | —                                         | `"data": [ { "name": "", "status": "" } ]`|
+| Método  | Rota                      | Descrição                                      | Request                                   | Response                                  |
+|---------|---------------------------|------------------------------------------------|-------------------------------------------|-------------------------------------------|
+| `POST`  | `/`                       | Registra presença de um usuário em uma reunião | `{ "meetingId": "...", "userId": "..." }` | `"message": "Check-in realizado"`         |
+| `GET`   | `/meetingList/:meetingId` | Lista presenças de uma reunião                 | —                                         | `"data": [ { "name": "", "status": "" } ]`|
 
 ### 💳 Mensalidades (`/api/v1/invoices`)
 
@@ -323,8 +335,7 @@ Gerencia as cobranças mensais dos membros e controle de pagamentos.
 | `GET`   | `/`           | Lista todas as cobranças                             | —                                 | `"data": [ { "_id": "", "amount": 0, "status": "" } ]`            |
 | `GET`   | `/:id`        | Detalha uma cobrança específica                      | —                                 | `"data": { "_id": "", "amount": 0, "dueDate": "", "status": "" }` |
 | `POST`  | `/generate`   | Gera cobranças mensais para todos os membros ativos  | `{ "referenceMonth": "2025-11" }` | `"message": "Mensalidades geradas"`                               |
-| `PATCH` | `/:id/pay`    | Marca uma cobrança como paga (manual ou via webhook) | `{ "status": "PAGA" }`            | `"message": "Pagamento confirmado"`                               |
-| `PATCH` | `/:id/cancel` | Cancela uma cobrança                                 | —                                 | `"message": "Cobrança cancelada"`                                 |
+| `PATCH` | `/:id`        | Atualizar uma cobrança                               | `{ "status": "PAGA" }`            | `"message": "Operação Realizada com sucesso"`                     |
 
 ### 🔔 Notificações (`/api/v1/notifications`)
 
@@ -338,7 +349,7 @@ Todas as respostas seguem um formato padronizado:
 
 ```json
 {
-  "success": true,
+  "statusCode": 200,
   "data": { ... },
   "message": "Operação realizada com sucesso"
 }
@@ -346,7 +357,7 @@ Todas as respostas seguem um formato padronizado:
 Erros retornam:
 ```json
 {
-  "success": false,
+  "statusCode": 400,
   "message": "Erro ao processar requisição"
 }
 ```
@@ -396,6 +407,8 @@ Erros retornam:
 - Agrupamento de membros por empresa
 - Aprimorar notificações de acordo com o veiculo de comunicação
 - Criação de Grupos de membros
+- adicionar docker
+- dashboard e indicadores
 
 
 
