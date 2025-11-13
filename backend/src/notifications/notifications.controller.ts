@@ -6,28 +6,9 @@ import { NotificationDto } from '@shared/dto/notification.dto';
 export class NotificationsController {
   constructor(private readonly notificationsService: NotificationsService) {}
 
-  @Post()
-  create(@Body() createNotificationDto: NotificationDto) {
-    return this.notificationsService.create(createNotificationDto);
+  @Get(':userId')
+  findByRole(@Param('userId') userId: string) {
+    return this.notificationsService.findByRole(userId);
   }
 
-  @Get()
-  findAll() {
-    return this.notificationsService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.notificationsService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateNotificationDto: NotificationDto) {
-    return this.notificationsService.update(+id, updateNotificationDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.notificationsService.remove(+id);
-  }
 }
