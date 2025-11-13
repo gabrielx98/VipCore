@@ -7,27 +7,13 @@ export class AttendancesController {
   constructor(private readonly attendancesService: AttendancesService) {}
 
   @Post()
-  create(@Body() createAttendanceDto: AttendanceDto) {
-    return this.attendancesService.create(createAttendanceDto);
+  async create(@Body() createAttendanceDto: AttendanceDto) {
+    return await this.attendancesService.create(createAttendanceDto);
   }
 
-  @Get()
-  findAll() {
-    return this.attendancesService.findAll();
+  @Get('/meetingList/:meetingId')
+  async getList(@Param('meetingId') meetingId: string) {
+    return await this.attendancesService.getList(meetingId);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.attendancesService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAttendanceDto: AttendanceDto) {
-    return this.attendancesService.update(+id, updateAttendanceDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.attendancesService.remove(+id);
-  }
 }
