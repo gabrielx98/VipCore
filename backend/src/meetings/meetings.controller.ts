@@ -7,27 +7,27 @@ export class MeetingsController {
   constructor(private readonly meetingsService: MeetingsService) {}
 
   @Post()
-  create(@Body() createMeetingDto: MeetingDto) {
-    return this.meetingsService.create(createMeetingDto);
+  async create(@Body() createMeetingDto: MeetingDto) {
+    return await this.meetingsService.create(createMeetingDto);
   }
 
   @Get()
-  findAll() {
-    return this.meetingsService.findAll();
+  async findAll() {
+    return await this.meetingsService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.meetingsService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.meetingsService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMeetingDto: MeetingDto) {
-    return this.meetingsService.update(+id, updateMeetingDto);
+  async update(@Param('id') id: string, @Body() updateMeetingDto: MeetingDto) {
+    return await this.meetingsService.update(+id, updateMeetingDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.meetingsService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.meetingsService.remove(+id);
   }
 }
