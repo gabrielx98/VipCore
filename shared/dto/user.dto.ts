@@ -2,7 +2,8 @@ import { IsDate, IsEmail, IsString, IsEnum, IsBoolean, IsMongoId, IsOptional } f
 
 export enum UserRole {
     ADMIN = 'ADMINISTRADOR',
-    MEMBRO = 'MEMBRO'
+    MEMBRO = 'MEMBRO',
+    NOVO = 'NOVO'
 }
 
 export enum UserStatus {
