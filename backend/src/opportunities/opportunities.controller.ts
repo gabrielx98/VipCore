@@ -16,9 +16,9 @@ export class OpportunitiesController {
     return this.opportunitiesService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.opportunitiesService.findOne(+id);
+  @Get(':userId')
+  findAllByUser(@Param('userId') userId: string) {
+    return this.opportunitiesService.findAllByUser(userId);
   }
 
   @Patch(':id')
