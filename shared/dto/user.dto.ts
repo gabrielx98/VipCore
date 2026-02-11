@@ -25,16 +25,16 @@ export class UserDto {
     email: string;
 
     @IsString()
-    password: string;
+    password?: string;
 
     @IsEnum(UserRole)
-    role: UserRole;
+    role?: UserRole;
 
     @IsEnum(UserStatus)
-    status: UserStatus;
+    status?: UserStatus;
 
     @IsString()
-    reason: string;
+    reason?: string;
 
     @IsOptional()
     @IsString()
@@ -45,7 +45,7 @@ export class UserDto {
     CNPJ?: string;
 
     @IsBoolean()
-    active: boolean;
+    active?: boolean;
 
     @IsOptional()
     @IsString()

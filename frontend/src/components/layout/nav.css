@@ -1,0 +1,137 @@
+/* Header */
+.nav-header {
+    display: flex;
+    height: 56px;
+    align-items: center;
+    padding: 0 16px;
+    background-color: #343232;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.nav-logo-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #444;
+    transition: border-color 0.2s;
+    background-color: #288b23;
+}
+
+.nav-logo:hover .nav-logo-circle {
+    border-color: #777;
+}
+
+.nav-title {
+    color: #ccc;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.2s;
+    padding-top: 4px;
+}
+
+.nav-logo:hover .nav-title {
+    color: white;
+}
+
+.nav-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-toggle-text {
+    color: #eee;
+    font-size: 24px;
+}
+
+.nav-toggle:hover .nav-toggle-text {
+    color: #bbb;
+}
+
+.nav-toggle-icon {
+    width: 42px;
+    color: #bbb;
+}
+
+/* Nav container */
+.nav-container {
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.nav-open {
+    position: fixed;
+    right: 0;
+    top: 56px;
+    bottom: 0;
+    background-color: #343232;
+}
+
+.nav-closed {
+    display: none;
+}
+
+/* Sections */
+.nav-sections {
+    padding: 20px 12px 80px;
+}
+
+.nav-section {
+    margin-bottom: 24px;
+}
+
+.nav-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #777;
+    text-transform: uppercase;
+    padding-left: 8px;
+}
+
+/* Nav Item */
+.nav-item {
+    display: block;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #aaa;
+    margin-bottom: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-item:hover {
+    background: #222;
+    color: #ddd;
+}
+
+.nav-item-active {
+    color: white !important;
+}
+
+.button-logout {
+    background: #b91c1c;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    position: absolute;
+    bottom: 10px;
+    width:100%;
+}
